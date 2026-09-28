@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Sah Weather Lookup",
+  "version": "1.0.0",
+  "description": "Highlight a city name anywhere (including text boxes), right-click, and choose \"Get weather\" to see current conditions.",
+  "permissions": ["contextMenus"],
+  "host_permissions": [
+    "https://geocoding-api.open-meteo.com/*",
+    "https://api.open-meteo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
